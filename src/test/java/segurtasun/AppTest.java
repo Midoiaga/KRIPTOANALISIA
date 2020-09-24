@@ -3,12 +3,29 @@
  */
 package segurtasun;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
+import segurtasun.App;
 
-public class AppTest {
-    @Test public void testAppHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+public class AppTest extends TestCase {
+    App app = null;
+
+    public void setUp() throws Exception {
+        super.setUp();
+        app = new App();
+    }
+
+    public void tearDown() throws Exception {
+    }
+
+    public void testZifratu() {
+        assertEquals("BP MZTVB MBWWZWBJ ZGVB", app.zifratu("EZ GAUDE GERRAREN ALDE"));
+    }
+    public void testDeszifratu() {
+
+        assertEquals("EZ GAUDE GERRAREN ALDE",
+                app.deszifratu(
+                        app.zifratu("EZ GAUDE GERRAREN ALDE")));
+
     }
 }
+

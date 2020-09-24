@@ -4,7 +4,7 @@
 package segurtasun;
 
 public class App {
-    private String gakoa="zabcdefghijklmnopqrstuvwxy";
+    private String gakoa="ZXCVBNMASDFGHJKLQWERTYUIOP";
 
     public String zifratu(String pMezua){
         int i;
@@ -15,9 +15,14 @@ public class App {
         String emaitza="";
         for (i=0;i<pMezua.length();i++){
             kar =pMezua.charAt(i);
+            if(kar==' '){
+                emaitza+=' ';
+            }
+            else{
             lag= (int) kar;
             lag=lag-65;
             emaitza+=this.gakoa.charAt(lag);
+            }
         }
         return emaitza;
     }
@@ -31,23 +36,28 @@ public class App {
         String emaitza="";
         for (i=0;i<pMezua.length();i++){
             kar=pMezua.charAt(i);
-            t=0;
-            irten=false;
-            while (t<this.gakoa.length() && !irten){
-                if (kar==this.gakoa.charAt(t)){
-                    irten=true;
-                }
-                t++;
+            if(kar==' '){
+                emaitza+=' ';
             }
-            t=t+64;
-            emaitza+= (char) t;
+            else {
+                t = 0;
+                irten = false;
+                while (t < this.gakoa.length() && !irten) {
+                    if (kar == this.gakoa.charAt(t)) {
+                        irten = true;
+                    }
+                    t++;
+                }
+                t = t + 64;
+                emaitza += (char) t;
+            }
         }
         return emaitza;
     }
     public static void main(String[] args) {
         System.out.println(new App().zifratu("hola"));
         System.out.println(new App().zifratu("zzzz"));
-        System.out.println(new App().zifratu("hola"));
+        System.out.println(new App().zifratu("ho la"));
         System.out.println(new App().deszifratu("GNKZ"));
        // System.out.println("asssssssssssssfssfwa");
     }
