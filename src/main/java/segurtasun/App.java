@@ -4,38 +4,40 @@
 package segurtasun;
 
 public class App {
-    public String zifratu(String pMezua,String pGakoa){
+    private String gakoa="zabcdefghijklmnopqrstuvwxy";
+
+    public String zifratu(String pMezua){
         int i;
         int lag;
         pMezua=pMezua.toUpperCase();
-        pGakoa=pGakoa.toUpperCase();
+        this.gakoa=this.gakoa.toUpperCase();
         char kar;
         String emaitza="";
         for (i=0;i<pMezua.length();i++){
             kar =pMezua.charAt(i);
-            lag= kar;
+            lag= (int) kar;
             lag=lag-65;
-            emaitza+=pGakoa.charAt(lag);
+            emaitza+=this.gakoa.charAt(lag);
         }
         return emaitza;
     }
-    public String deszifratu(String pMezua,String pGakoa){
+    public String deszifratu(String pMezua){
         int i;
         int t;
         boolean irten;
         pMezua=pMezua.toUpperCase();
-        pGakoa=pGakoa.toUpperCase();
+        this.gakoa=this.gakoa.toUpperCase();
         char kar;
         String emaitza="";
         for (i=0;i<pMezua.length();i++){
             kar=pMezua.charAt(i);
             t=0;
             irten=false;
-            while (t<pGakoa.length() && !irten){
-            if (kar==pGakoa.charAt(t)){
-                irten=true;
-            }
-            t++;
+            while (t<this.gakoa.length() && !irten){
+                if (kar==this.gakoa.charAt(t)){
+                    irten=true;
+                }
+                t++;
             }
             t=t+64;
             emaitza+= (char) t;
@@ -43,10 +45,10 @@ public class App {
         return emaitza;
     }
     public static void main(String[] args) {
-        System.out.println(new App().zifratu("hola","abcdefghijklmnopqrstuvwxyz"));
-        System.out.println(new App().zifratu("zzzz","abcdefghijklmnopqrstuvwxyz"));
-        System.out.println(new App().zifratu("hola","zabcdefghijklmnopqrstuvwxy"));
-        System.out.println(new App().deszifratu("GNKZ","zabcdefghijklmnopqrstuvwxy"));
+        System.out.println(new App().zifratu("hola"));
+        System.out.println(new App().zifratu("zzzz"));
+        System.out.println(new App().zifratu("hola"));
+        System.out.println(new App().deszifratu("GNKZ"));
        // System.out.println("asssssssssssssfssfwa");
     }
 }
