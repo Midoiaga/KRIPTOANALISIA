@@ -3,7 +3,7 @@
  */
 package segurtasun;
 
-public class App {
+public class OrdezkatzeHiztegia {
     private String gakoa="ZXCVBNMASDFGHJKLQWERTYUIOP";
 
     public String zifratu(String pMezua){
@@ -55,10 +55,10 @@ public class App {
         return emaitza;
     }
     public static void main(String[] args) {
-        System.out.println(new App().zifratu("hola"));
-        System.out.println(new App().zifratu("zzzz"));
-        System.out.println(new App().zifratu("ho la"));
-        System.out.println(new App().deszifratu("GNKZ"));
+        System.out.println(new OrdezkatzeHiztegia().zifratu("hola"));
+        System.out.println(new OrdezkatzeHiztegia().zifratu("zzzz"));
+        System.out.println(new OrdezkatzeHiztegia().zifratu("ho la"));
+        System.out.println(new OrdezkatzeHiztegia().deszifratu("GNKZ"));
        // System.out.println("asssssssssssssfssfwa");
     }
 }

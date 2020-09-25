@@ -4,14 +4,13 @@
 package segurtasun;
 
 import junit.framework.TestCase;
-import segurtasun.App;
 
-public class AppTest extends TestCase {
-    App app = null;
+public class OrdezkatzeHiztegiaTest extends TestCase {
+    OrdezkatzeHiztegia app = null;
 
     public void setUp() throws Exception {
         super.setUp();
-        app = new App();
+        app = new OrdezkatzeHiztegia();
     }
 
     public void tearDown() throws Exception {
